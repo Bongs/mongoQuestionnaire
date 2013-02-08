@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @questionbank.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @questionbank.description %>
+</p>
+
+<% if @questionbank.questions.size > 0 %>
+  <h2>Questions</h2>
+  <% for question in @questionbank.questions %>
+    <h3><%= question.title %></h3>
+    <h4><%= question.answer_behaviour %></h4>
+    <h4><%= question.mandatory %></h4>
+  <% end %>
+<% end %>
+
+
+<%= link_to 'Edit', edit_questionbank_path(@questionbank) %> |
+<%= link_to 'Back', questionbanks_path %>

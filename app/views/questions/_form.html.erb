@@ -1,0 +1,36 @@
+<%= form_for(@question) do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :answer_behaviour %><br />
+    <%= f.text_field :answer_behaviour %>
+  </div>
+  <div class="field">
+    <%= f.label :mandatory %><br />
+    <%= f.check_box :mandatory %>
+  </div>
+   <div class="field">
+    <%= label_tag 'add_to_questionbank', "Add to questionbank" %>
+    <% if Questionbank.count > 0 %>
+      <% @questionbanks = Questionbank.all %>
+      <%= select_tag "questionbank", options_from_collection_for_select(@questionbanks, "id", "title"), :prompt => "Add to questionbank" %>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

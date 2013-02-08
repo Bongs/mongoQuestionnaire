@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  answer_behaviour: MyString
+  mandatory: false
+
+two:
+  title: MyString
+  answer_behaviour: MyString
+  mandatory: false
